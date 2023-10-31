@@ -76,6 +76,17 @@ namespace DSCC.Controllers
             var employeeResponseDto = EmployeeResponseDto.MapFromEmployee(employee);
 
             return Ok(employeeResponseDto);
-        } 
+        }
+
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteEmployee( int id )
+        {
+            var isSuccess = _employeeRepository.Delete(id);
+
+            if (isSuccess) return Ok();
+
+            return BadRequest();
+        }
     }
 }

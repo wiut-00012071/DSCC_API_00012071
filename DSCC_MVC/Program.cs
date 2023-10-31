@@ -1,6 +1,12 @@
+using DSCC_MVC.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddTransient<RestClientService, RestClientService>(); 
+
+builder.Services.AddTransient<EmployeeService, EmployeeService>(); 
 
 var app = builder.Build();
 
