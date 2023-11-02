@@ -39,18 +39,18 @@ namespace DSCC.Repositories
 
         public bool Insert( Department department )
         {
-            //try
-            //{
+            try
+            {
                 _dbContext.Add(department);
 
                 Save();
 
                 return true;
-            //}
-            //catch
-            //{
+            }
+            catch
+            {
                 return false;
-            //}
+            }
         }
 
         public bool Update( Department department )
