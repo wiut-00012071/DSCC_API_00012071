@@ -11,6 +11,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<EmployeeRepository, EmployeeRepository>();
+builder.Services.AddTransient<DepartmentRepository, DepartmentRepository>();
+
 
 
 var app = builder.Build();

@@ -1,36 +1,35 @@
 ﻿using DSCC.Data;
 using DSCC.Interfaces;
 using DSCC.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace DSCC.Repositories
 {
-    public class EmployeeRepository : IRepository<Employee>
+    public class DepartmentRepository : IRepository<Department>
     {
-        public EmployeeRepository( DataContext dbContext )
+        public DepartmentRepository( DataContext dbContext )
         {
             _dbContext = dbContext;
         }
 
         private readonly DataContext _dbContext;
 
-        public IEnumerable<Employee> GetAll()
+        public IEnumerable<Department> GetAll()
         {
             try
             {
-                return _dbContext.Employees.Include(e => e.Department).ToList();
+                return _dbContext.Departments.ToList();
             }
             catch
             {
-                return Enumerable.Empty<Employee>();
+                return Enumerable.Empty<Department>();
             }
         }
 
-        public Employee? GetOne( int id )
+        public Department? GetOne( int id )
         {
             try
             {
-                return _dbContext.Employees.Where(e => id == e.Id).Include(e => e.Department).First();
+                return _dbContext.Departments.Find(id);
             }
             catch
             {
@@ -38,31 +37,27 @@ namespace DSCC.Repositories
             }
         }
 
-        public bool Insert( Employee employee )
+        public bool Insert( Department department )
         {
-            try
-            {
-                employee.Department = null;
-
-                _dbContext.Add(employee);
+            //try
+            //{
+                _dbContext.Add(department);
 
                 Save();
 
                 return true;
-            }
-            catch
-            {
+            //}
+            //catch
+            //{
                 return false;
-            }
+            //}
         }
 
-        public bool Update( Employee employee )
+        public bool Update( Department department )
         {
             try
             {
-                employee.Department = null;
-
-                _dbContext.Employees.Update(employee);
+                _dbContext.Departments.Update(department);
 
                 Save();
 
@@ -78,11 +73,11 @@ namespace DSCC.Repositories
         {
             try
             {
-                var employee = GetOne(id);
+                var department = GetOne(id);
 
-                if (employee == null) return false;
+                if (department == null) return false;
 
-                _dbContext.Employees.Remove(employee);
+                _dbContext.Departments.Remove(department);
 
                 Save();
 
@@ -101,7 +96,7 @@ namespace DSCC.Repositories
 
         public bool isPresent( int id )
         {
-            return _dbContext.Employees.Any(employee => employee.Id == id);
+            return _dbContext.Departments.Any(department => department.Id == id);
         }
 
     }
