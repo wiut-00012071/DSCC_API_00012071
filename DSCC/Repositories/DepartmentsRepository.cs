@@ -1,6 +1,7 @@
 ﻿using DSCC.Data;
 using DSCC.Interfaces;
 using DSCC.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DSCC.Repositories
 {
@@ -73,6 +74,10 @@ namespace DSCC.Repositories
         {
             try
             {
+                int refsCount = _dbContext.Employees.Count(e => e.DepartmentId == id);
+
+                if (refsCount > 0) return false;
+
                 var department = GetOne(id);
 
                 if (department == null) return false;

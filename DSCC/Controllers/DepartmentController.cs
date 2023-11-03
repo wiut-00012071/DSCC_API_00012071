@@ -27,7 +27,7 @@ namespace DSCC.Controllers
         [HttpGet("{id}")]
         public IActionResult GetDepartmentById( int id )
         {
-            var department = _departmentRepository.GetOne(id);
+            Department department = _departmentRepository.GetOne(id);
 
             if (department == null) return NotFound();
 
@@ -47,7 +47,7 @@ namespace DSCC.Controllers
         [HttpPut]
         public IActionResult UpdateDepartment( [FromBody] Department department )
         {
-            var isSucess = _departmentRepository.Update(department);
+            bool isSucess = _departmentRepository.Update(department);
 
             if (!isSucess) return BadRequest();
 
@@ -58,7 +58,7 @@ namespace DSCC.Controllers
         [HttpDelete("{id}")]
         public IActionResult DeleteDepartment( int id )
         {
-            var isSuccess = _departmentRepository.Delete(id);
+            bool isSuccess = _departmentRepository.Delete(id);
 
             if (isSuccess) return Ok();
 

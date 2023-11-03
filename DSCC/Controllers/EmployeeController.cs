@@ -27,7 +27,7 @@ namespace DSCC.Controllers
         [HttpGet("{id}")]
         public IActionResult GetEmployeeById( int id )
         {
-            var employee = _employeeRepository.GetOne(id);
+            Employee employee = _employeeRepository.GetOne(id);
 
             if (employee == null) return NotFound();
 
@@ -47,7 +47,7 @@ namespace DSCC.Controllers
         [HttpPut]
         public IActionResult UpdateEmployee( [FromBody] Employee employee )
         {
-            var isSucess = _employeeRepository.Update(employee);
+            bool isSucess = _employeeRepository.Update(employee);
 
             if (!isSucess) return BadRequest();
 
@@ -58,7 +58,7 @@ namespace DSCC.Controllers
         [HttpDelete("{id}")]
         public IActionResult DeleteEmployee( int id )
         {
-            var isSuccess = _employeeRepository.Delete(id);
+            bool isSuccess = _employeeRepository.Delete(id);
 
             if (isSuccess) return Ok();
 

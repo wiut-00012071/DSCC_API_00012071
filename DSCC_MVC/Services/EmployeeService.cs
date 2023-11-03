@@ -11,17 +11,17 @@ namespace DSCC_MVC.Services
             _restClientService = restClientService;
         }
 
-        public List<Employee>? GetAll()
+        public IEnumerable<Employee> GetAll()
         {
             try
             {
-                List<Employee> employees = _restClientService.Get<List<Employee>>("employees");
+                IEnumerable<Employee> employees = _restClientService.Get<List<Employee>>("employees");
 
                 return employees;
             }
             catch
             {
-                return null;
+                return new List<Employee> { };
             }
         }
 
@@ -53,11 +53,11 @@ namespace DSCC_MVC.Services
             }
         }
 
-        public Employee? Update( int id, Employee employee )
+        public Employee? Update( Employee employee )
         {
             try
             {
-                Employee updatedEmployee = _restClientService.Put($"employees/{id}", employee);
+                Employee updatedEmployee = _restClientService.Put("employees", employee);
 
                 return updatedEmployee;
             }

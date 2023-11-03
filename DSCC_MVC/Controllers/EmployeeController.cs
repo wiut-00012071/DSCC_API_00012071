@@ -9,30 +9,26 @@ namespace DSCC_MVC.Controllers
     {
         private readonly EmployeeService _employeeService;
 
-        public EmployeeController( EmployeeService employeeService )
+        private readonly DepartmentService _departmentService;
+
+        public EmployeeController( EmployeeService employeeService, DepartmentService departmentService )
         {
             _employeeService = employeeService;
+            _departmentService = departmentService;
         }
 
         public ActionResult Index()
         {
-            List<Employee> employees = _employeeService.GetAll();
+            IEnumerable<Employee> employees = _employeeService.GetAll();
 
             return View(employees);
         }
 
-
         public ActionResult Register()
         {
-            return View();
-        }
+            IEnumerable<Department> departments = _departmentService.GetAll();
 
-        [HttpPost]
-        public ActionResult Register( Employee employee )
-        {
-            Employee newEmployee = _employeeService.Insert(employee);
-
-            return RedirectToAction(nameof(Index));
+            return View(new EmployeeCreateModel { Employee = new Employee { }, Departments = departments });
         }
 
         public ActionResult Details( int id )
@@ -48,24 +44,34 @@ namespace DSCC_MVC.Controllers
         {
             Employee employee = _employeeService.GetOne(id);
 
+            IEnumerable<Department> departments = _departmentService.GetAll();
+
             if (employee == null) return RedirectToAction(nameof(Index));
 
-            return View(employee);
+            return View(new EmployeeEditModel { Employee = employee, Departments = departments });
+        }
+
+        [HttpPost]
+        public ActionResult Register( Employee employee )
+        {
+            _employeeService.Insert(employee);
+
+            return RedirectToAction(nameof(Index));
         }
 
         [HttpPost]
         public ActionResult Edit( int id, Employee employee )
         {
-            Employee updatedEmployee = _employeeService.Update(id, employee);
+            employee.Id = id;
 
-            if (updatedEmployee == null) return RedirectToAction(nameof(Edit), new { id });
+            _employeeService.Update(employee);
 
-            return RedirectToAction(nameof(Details), new { id });
+            return RedirectToAction(nameof(Index));
         }
 
         public ActionResult Delete( int id )
         {
-            bool isSuccess = _employeeService.Delete(id);
+            _employeeService.Delete(id);
 
             return RedirectToAction(nameof(Index));
         }

@@ -6,7 +6,9 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddTransient<RestClientService, RestClientService>(); 
 
-builder.Services.AddTransient<EmployeeService, EmployeeService>(); 
+builder.Services.AddTransient<EmployeeService, EmployeeService>();
+
+builder.Services.AddTransient<DepartmentService, DepartmentService>();
 
 var app = builder.Build();
 
