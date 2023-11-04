@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DSCC.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20231102230040_Departments-Renamed")]
-    partial class DepartmentsRenamed
+    [Migration("20231104213201_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
