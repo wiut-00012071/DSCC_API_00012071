@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using DSCC.Repositories;
-using DSCC.Models;
+using DSCC_API_00012071.Repositories;
+using DSCC_API_00012071.Models;
 
-namespace DSCC.Controllers
+namespace DSCC_API_00012071.Controllers
 {
     [Route("api/employees")]
     [ApiController]

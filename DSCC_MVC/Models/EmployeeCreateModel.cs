@@ -1,9 +1,0 @@
-namespace DSCC_MVC.Models
-{
-    public class EmployeeCreateModel
-    {
-        public Employee Employee { get; set; }
-
-        public IEnumerable<Department> Departments { get; set; }
-    }
-}

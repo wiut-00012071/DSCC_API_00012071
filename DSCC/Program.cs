@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using DSCC.Data;
-using DSCC.Repositories;
+using DSCC_API_00012071.Data;
+using DSCC_API_00012071.Repositories;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 

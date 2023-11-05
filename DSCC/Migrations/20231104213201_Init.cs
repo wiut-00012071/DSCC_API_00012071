@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace DSCC.Migrations
+namespace DSCC_API_00012071.Migrations
 {
     /// <inheritdoc />
     public partial class Init : Migration

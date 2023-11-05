@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DSCC.Models
+namespace DSCC_API_00012071.Models
 {
     public class Employee
     {

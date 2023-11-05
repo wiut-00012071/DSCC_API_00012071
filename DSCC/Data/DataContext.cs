@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using DSCC.Models;
+using DSCC_API_00012071.Models;
 
-namespace DSCC.Data
+namespace DSCC_API_00012071.Data
 {
     public class DataContext : DbContext
     {

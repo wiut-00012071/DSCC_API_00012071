@@ -1,7 +1,7 @@
 ﻿
 using System.ComponentModel.DataAnnotations;
 
-namespace DSCC.Models
+namespace DSCC_API_00012071.Models
 {
     public class Department
     {

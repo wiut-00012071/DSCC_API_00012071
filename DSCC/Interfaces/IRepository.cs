@@ -1,4 +1,4 @@
-﻿namespace DSCC.Interfaces
+﻿namespace DSCC_API_00012071.Interfaces
 {
     public interface IRepository<T>
     {

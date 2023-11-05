@@ -1,9 +1,9 @@
-﻿using DSCC.Data;
-using DSCC.Interfaces;
-using DSCC.Models;
+﻿using DSCC_API_00012071.Data;
+using DSCC_API_00012071.Interfaces;
+using DSCC_API_00012071.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace DSCC.Repositories
+namespace DSCC_API_00012071.Repositories
 {
     public class EmployeeRepository : IRepository<Employee>
     {
