@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "DSCC/1.0.0": {
+      "DSCC_API_00012071/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "7.0.13",
           "Microsoft.EntityFrameworkCore.Design": "7.0.13",
@@ -15,7 +15,7 @@
           "Swashbuckle.AspNetCore": "6.5.0"
         },
         "runtime": {
-          "DSCC.dll": {}
+          "DSCC_API_00012071.dll": {}
         }
       },
       "Azure.Core/1.25.0": {
@@ -658,7 +658,7 @@
     }
   },
   "libraries": {
-    "DSCC/1.0.0": {
+    "DSCC_API_00012071/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
