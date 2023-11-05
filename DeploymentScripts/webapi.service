@@ -3,7 +3,7 @@ Description=DSCC_API_00012071
 
 [Service]
 WorkingDirectory=/var/www/
-ExecStart=/usr/bin/dotnet /var/www/<YOUR VS PROJECT NAME>.dll
+ExecStart=/usr/bin/dotnet /var/www/DSCC_API_00012071.dll
 Restart=always
 
 RestartSec=10
